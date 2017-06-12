@@ -6,20 +6,19 @@
 //  Copyright © 2017 Sebastian Owodzin. All rights reserved.
 //
 
+import exampleFramework
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func openVC(_ sender: UIButton) {
+        if let vc = UIStoryboard.buildInstance(for: SecondTestViewController.self) {
+            present(vc, animated: true, completion: nil)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func openXibVC(_ sender: UIButton) {
+        let vc = XibTestViewController.buildInstance()
+        present(vc, animated: true, completion: nil)
     }
-
-
 }
 
